@@ -25,17 +25,37 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 #logoSection #logo {
-  width: 255px;
+  max-width: 255px;
+  transform: translateY(-50%);
   height: auto;
+  z-index: 3;
 }
 #logoSection #frontSpirograph {
   position: absolute;
   bottom: 0;
-  z-index: 0;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(7px);
 }
-
+#logoSection #frontSpirograph svg {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+#backSpirograph {
+  z-index: 0;
+  position: absolute;
+  bottom: -10px;
+  width: 100%;
+}
+#backSpirograph svg {
+  width: 100%;
+}
 #loginSection {
   width: 50%;
   height: 100%;
@@ -109,8 +129,9 @@
 }
 
 .loginModal {
-  height: 70%;
-  padding: 35px 0;
+  min-height: 70%;
+  width: 327px;
+  padding: 45px 0;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
@@ -119,14 +140,21 @@
   border-radius: 10px;
 }
 .loginModal > * {
-  width: 70%;
   text-align: center;
   color: var(--white);
 }
 .loginModal > svg {
-  margin-top: 5px;
+  margin-bottom: 17px;
+}
+.loginModal > h3 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  width: 250px;
+  margin-bottom: 6px;
 }
 .loginModal > span {
+  width: 250px;
   font-size: 12px;
   color: var(--whiteTranslucent);
 }
