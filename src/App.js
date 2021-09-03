@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import spirograph from "./spirograph.jpg";
 import "./style/app.css";
 import firebase, { db } from "./config/firebase-config";
 function App() {
