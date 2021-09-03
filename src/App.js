@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import spirograph from "./spirograph.jpg";
 import "./style/app.css";
 import firebase, { db } from "./config/firebase-config";
 function App() {
@@ -9,11 +8,10 @@ function App() {
 
   let [authStatus, setAuthStatus] = useState("in-progress");
   let [loading, setLoading] = useState(true);
-
+  const [noRefId, setnoRefId] = useState(false);
   useEffect(() => {
     if (!refId) {
       // Add landing page component here
-      console.log("Opened Site from outside");
     } else {
       db.collection("login_attempts")
         .doc(refId)
@@ -92,7 +90,6 @@ function App() {
         let credential = error.credential;
       });
   };
-
   return (
     <div className="App">
       <section id="logoSection">
@@ -313,12 +310,12 @@ function App() {
       <section id="loginSection">
         <div id="container">
           <div id="loginContainer">
+            {noRefId && <div>Hello</div>}
             {loading && (
               <div id="loginStart">
                 <h2>Loading</h2>
               </div>
             )}
-
             {authStatus === "in-progress" && !loading && (
               <div id="loginStart">
                 <h2>Lets Get Started</h2>
